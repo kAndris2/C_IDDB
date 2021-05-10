@@ -11,12 +11,13 @@ namespace IDDB
         static void Main(string[] args)
         {
             ConsoleLogger logger = new ConsoleLogger();
+            PasswordService passwordService = new PasswordService();
             int pTry = 0;
 
             while (pTry != MAX_TRY)
             {
                 Console.WriteLine("Please enter the password to open database:");
-                string password = Console.ReadLine();
+                string password = passwordService.GetPassword();
                 Console.Clear();
 
                 if (password.Equals(PASSWORD))
